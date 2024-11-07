@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --color-primary: 37, 99, 235;    /* Blue-600 */
+    --color-secondary: 59, 130, 246;  /* Blue-500 */
+    --color-accent: 96, 165, 250;     /* Blue-400 */
+    --color-background: 255, 255, 255;
+    --color-text: 15, 23, 42;         /* Slate-900 */
+  }
+
+  .dark {
+    --color-primary: 96, 165, 250;    /* Blue-400 */
+    --color-secondary: 59, 130, 246;  /* Blue-500 */
+    --color-accent: 37, 99, 235;      /* Blue-600 */
+    --color-background: 15, 23, 42;   /* Slate-900 */
+    --color-text: 241, 245, 249;      /* Slate-100 */
+  }
+}
+
+/* Enhanced animated background */
+.pattern-background {
+  background-color: rgb(var(--color-background));
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated grid */
+.pattern-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgb(var(--color-primary) / 0.03) 1px, transparent 1px),
+    linear-gradient(0deg, rgb(var(--color-primary) / 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: patternMove 20s linear infinite;
+  z-index: -2;
+}
+
+/* Floating elements */
+.pattern-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 100% 100%, rgb(var(--color-primary) / 0.15) 0%, transparent 25%),
+    radial-gradient(circle at 0% 0%, rgb(var(--color-secondary) / 0.15) 0%, transparent 25%);
+  filter: blur(60px);
+  animation: floatingGradient 15s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+/* Animated shapes */
+.floating-shapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.floating-shapes div {
+  position: absolute;
+  background: rgb(var(--color-primary) / 0.1);
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+.floating-shapes div:nth-child(1) {
+  width: 150px;
+  height: 150px;
+  top: 20%;
+  left: 10%;
+  animation: float1 20s infinite;
+}
+
+.floating-shapes div:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  right: 15%;
+  animation: float2 25s infinite;
+}
+
+.floating-shapes div:nth-child(3) {
+  width: 75px;
+  height: 75px;
+  bottom: 20%;
+  left: 20%;
+  animation: float3 30s infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(100px, 50px) rotate(90deg); }
+  50% { transform: translate(50px, 100px) rotate(180deg); }
+  75% { transform: translate(-50px, 50px) rotate(270deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-50px, -80px) rotate(120deg); }
+  66% { transform: translate(80px, -40px) rotate(240deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(60px, -60px) rotate(180deg); }
+}
+
+@keyframes patternMove {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(50px) translateY(50px); }
+}
+
+@keyframes floatingGradient {
+  0%, 100% { opacity: 0.5; transform: translate(0, 0); }
+  50% { opacity: 1; transform: translate(-30px, 30px); }
+}
+
+/* Enhanced animations */
+.fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-up {
+  animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-in {
+  animation: slideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-in {
+  animation: scaleIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rotate-in {
+  animation: rotateIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    transform: rotate(-10deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgb(var(--color-primary) / 0.1);
+}
+
+/* Card animations */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgb(var(--color-primary) / 0.25);
+}
+
+/* Profile image container */
+.profile-image-container {
+  position: relative;
+  animation: profileFloat 6s ease-in-out infinite;
+}
+
+.profile-image-container::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: linear-gradient(45deg, rgb(var(--color-primary)), rgb(var(--color-secondary)));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(20px);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes profileFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
