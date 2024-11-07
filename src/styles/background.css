@@ -1,0 +1,102 @@
+/* Enhanced animated background */
+.pattern-background {
+  background-color: rgb(var(--color-background));
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated grid */
+.pattern-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgb(var(--color-primary) / 0.03) 1px, transparent 1px),
+    linear-gradient(0deg, rgb(var(--color-primary) / 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: patternMove 20s linear infinite;
+  z-index: -2;
+}
+
+/* Floating elements */
+.pattern-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 100% 100%, rgb(var(--color-primary) / 0.15) 0%, transparent 25%),
+    radial-gradient(circle at 0% 0%, rgb(var(--color-secondary) / 0.15) 0%, transparent 25%);
+  filter: blur(60px);
+  animation: floatingGradient 15s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+/* Animated shapes */
+.floating-shapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.floating-shapes div {
+  position: absolute;
+  background: rgb(var(--color-primary) / 0.1);
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+.floating-shapes div:nth-child(1) {
+  width: 150px;
+  height: 150px;
+  top: 20%;
+  left: 10%;
+  animation: float1 20s infinite;
+}
+
+.floating-shapes div:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  right: 15%;
+  animation: float2 25s infinite;
+}
+
+.floating-shapes div:nth-child(3) {
+  width: 75px;
+  height: 75px;
+  bottom: 20%;
+  left: 20%;
+  animation: float3 30s infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(100px, 50px) rotate(90deg); }
+  50% { transform: translate(50px, 100px) rotate(180deg); }
+  75% { transform: translate(-50px, 50px) rotate(270deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-50px, -80px) rotate(120deg); }
+  66% { transform: translate(80px, -40px) rotate(240deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(60px, -60px) rotate(180deg); }
+}
+
+@keyframes patternMove {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(50px) translateY(50px); }
+}
+
+@keyframes floatingGradient {
+  0%, 100% { opacity: 0.5; transform: translate(0, 0); }
+  50% { opacity: 1; transform: translate(-30px, 30px); }
+}
