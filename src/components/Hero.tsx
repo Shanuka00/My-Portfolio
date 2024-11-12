@@ -6,11 +6,12 @@ export function Hero() {
     <section id="home" className="min-h-screen flex items-center pt-16 overflow-hidden relative">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <div className="hero-image-wrapper">
+        <div className="hero-image-wrapper absolute right-0 top-0 md:mt-0">
           <img
+            style={{ width: '57%', height: 'auto', marginLeft: '48%' }}
             src= { heroImg }
             alt=""
-            className="hero-image"
+            className="hero-image fade-in"
           />
         </div>
       </div>
@@ -25,12 +26,12 @@ export function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl lg:pl-6 ">
           <div className="space-y-8 fade-in">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Welcome to <br />
-              <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-                Shanuka's World
-              </span>
-            </h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight max-w-full lg:max-w-[70%] whitespace-nowrap">
+            Welcome to <br />
+            <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent" style={{ display: 'inline-block', marginTop: '0.65rem' }} >
+              Shanuka's World
+            </span>
+          </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-slate-600 dark:text-slate-300">
               Crafting digital experiences through code and creativity
             </p>
