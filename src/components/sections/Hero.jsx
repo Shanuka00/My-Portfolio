@@ -73,7 +73,7 @@ const HeroRightContainer = styled.div`
 
 const Title = styled.div`
   font-weight: 700;
-  font-size: 50px;
+  font-size: 55px;
   color: ${({ theme }) => theme.text_primary};
   line-height: 68px;
 
@@ -104,6 +104,13 @@ const TextLoop = styled.div`
     font-size: 22px;
     line-height: 48px;
     margin-bottom: 16px;
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    margin-left: 15px;
+    align-items: center;
+    text-align: center;
   }
 `;
 
@@ -128,7 +135,7 @@ const SubTitle = styled.div`
   }
 `;
 
-const ResumeButton = styled.a`
+const ContactButton = styled.a`
   -webkit-appearance: button;
   -moz-appearance: button;
   appearance: button;
@@ -139,22 +146,23 @@ const ResumeButton = styled.a`
   text-align: center;
   padding: 16px 0;
 
-  background: hsla(271, 100%, 50%, 1);
+  background: hsla(210, 100%, 50%, 1);
   background: linear-gradient(
     225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
+    rgb(19, 67, 226) 0%,
+    rgb(57, 115, 223) 100%
   );
   background: -moz-linear-gradient(
     225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
+    rgb(33, 37, 221) 0%,
+    rgb(66, 112, 228) 100%
   );
   background: -webkit-linear-gradient(
     225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
+    rgb(24, 46, 213) 0%,
+    rgb(75, 124, 222) 100%
   );
+
   box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634;
   border-radius: 50px;
   font-weight: 600;
@@ -252,9 +260,10 @@ const Hero = () => {
                 <SubTitle>{Bio.description}</SubTitle>
               </motion.div>
 
-              <ResumeButton href={Bio.resume} target="_blank">
-                Check Resume
-              </ResumeButton>
+              <ContactButton href="#Contact">
+                Reach Out Now
+              </ContactButton>
+
             </HeroLeftContainer>
             <HeroRightContainer>
               <motion.div {...headContentAnimation}>
