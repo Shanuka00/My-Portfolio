@@ -72,7 +72,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const GithubButton = styled.a`
+const ResumeButton = styled.a`
   border: 1px solid ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.primary};
   justify-content: center;
@@ -163,23 +163,23 @@ const Navbar = () => {
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Education">
               Education
             </NavLink>
-            <GithubButton
-              href={Bio.github}
+            <ResumeButton
+              href={Bio.resume}
               target="_Blank"
               style={{
                 background: theme.primary,
                 color: theme.text_primary,
               }}
             >
-              Github Profile
-            </GithubButton>
+              View Resume
+            </ResumeButton>
           </MobileMenu>
         )}
 
         <ButtonContainer>
-          <GithubButton href={Bio.github} target="_Blank">
-            Github Profile
-          </GithubButton>
+          <ResumeButton href={Bio.resume} target="_Blank">
+            View Resume
+          </ResumeButton>
         </ButtonContainer>
       </NavbarContainer>
     </Nav>
