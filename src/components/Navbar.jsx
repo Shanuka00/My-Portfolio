@@ -3,6 +3,7 @@ import { Link as LinkR } from "react-router-dom";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
 import { MenuRounded } from "@mui/icons-material";
+import mylogo2 from "../images/mylogo2.png";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -126,13 +127,27 @@ const MobileMenu = styled.ul`
   z-index: ${({ isOpen }) => (isOpen ? "1000" : "-1000")};
 `;
 
+const LogoImg = styled.img`
+  max-height: 40px;
+  width: auto;
+  padding-top: 4px;
+  margin-left: 10px;
+  @media screen and (max-width: 768px) {
+    max-height: 32px;
+    margin-left: 0;
+    padding-top: 1px;
+  }
+`;
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme();
   return (
     <Nav>
       <NavbarContainer>
-        <NavLogo to="/">Shanuka Dilshan</NavLogo>
+        <NavLogo to="/">
+          <LogoImg src={mylogo2} alt="Logo" />
+        </NavLogo>
 
         <MobileIcon onClick={() => setIsOpen(!isOpen)}>
           <MenuRounded style={{ color: "inherit" }} />

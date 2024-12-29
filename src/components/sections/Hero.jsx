@@ -86,6 +86,12 @@ const Title = styled.div`
     line-height: 48px;
     margin-bottom: 8px;
   }
+
+  @media (max-width: 380px) {
+    font-size: 35px;
+    line-height: 48px;
+    margin-bottom: 8px;
+  }
 `;
 
 const TextLoop = styled.div`
