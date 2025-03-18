@@ -128,12 +128,22 @@ const MobileMenu = styled.ul`
 `;
 
 const LogoImg = styled.img`
-  max-height: 40px;
+  max-height: 55px;
   width: auto;
   padding-top: 4px;
   margin-left: 10px;
+
+  & {
+  transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transitions for effects */
+}
+
+&:hover {
+  transform: scale(1.05) rotate(3deg); /* Zoom-in and slight rotation */
+  filter: saturate(1.2); /* Brighter and more vibrant colors */
+}
+
   @media screen and (max-width: 768px) {
-    max-height: 32px;
+    max-height: 38px;
     margin-left: 0;
     padding-top: 1px;
   }
