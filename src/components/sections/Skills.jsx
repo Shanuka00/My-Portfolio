@@ -5,10 +5,11 @@ import { skills } from "../../data/constants";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-contnet: center;
-  position: rlative;
+  justify-content: center;
+  position: relative;
   z-index: 1;
   align-items: center;
+  scroll-margin-top: 80px;
 `;
 
 const Wrapper = styled.div`

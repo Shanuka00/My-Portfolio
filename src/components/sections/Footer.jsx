@@ -83,7 +83,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Logo>Shanuka Dilshan</Logo>
+        <Logo>Shanuka Dissanayake</Logo>
         <Nav>
           <NavLink href="#About">About</NavLink>
           <NavLink href="#Skills">Skills</NavLink>
@@ -102,7 +102,7 @@ const Footer = () => {
             <Instagram />
           </SocialMediaIcon>
         </SocialMediaIcons>
-        <Copyright>&copy; 2024 Shanuka Dilshan. All rights reserved.</Copyright>
+        <Copyright>&copy; 2026 Shanuka Dissanayake. All rights reserved.</Copyright>
       </FooterWrapper>
     </FooterContainer>
   );
