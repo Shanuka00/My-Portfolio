@@ -73,7 +73,7 @@ const HeroRightContainer = styled.div`
 
 const Title = styled.div`
   font-weight: 700;
-  font-size: 55px;
+  font-size: 57px;
   color: ${({ theme }) => theme.text_primary};
   line-height: 68px;
 
@@ -235,7 +235,7 @@ const HeroBg = styled.div`
 
 const Hero = () => {
   return (
-    <div id="About">
+    <div id="About" style={{ scrollMarginTop: "80px" }}>
       <HeroContainer>
         <HeroBg>
           <HeroBgAnimation />
