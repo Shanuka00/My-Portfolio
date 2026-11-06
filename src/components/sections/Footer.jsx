@@ -102,7 +102,7 @@ const Footer = () => {
             <Instagram />
           </SocialMediaIcon>
         </SocialMediaIcons>
-        <Copyright>&copy; 2024 Shanuka Dilshan. All rights reserved.</Copyright>
+        <Copyright>&copy; 2026 Shanuka Dilshan. All rights reserved.</Copyright>
       </FooterWrapper>
     </FooterContainer>
   );

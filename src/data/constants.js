@@ -1,15 +1,10 @@
-import Etutor from "../images/etutor.png";
-import StudioMojo from "../images/studiomojo.png";
-import Gdsa from "../images/gdsa.png";
-import safari from "../images/safaree.png";
-import medicare from "../images/medicare.png";
-import yh2 from "../images/yh2.png";
+import vision from "../images/vision.png";
 
 export const Bio = {
   name: "Shanuka Dilshan ",
   roles: ["Full Stack Developer", "UI/UX Designer", "Visual Content Editor"],
   description:
-    "A passionate Software engineer from Sri Lanka. Done My Advance level At St.Sylvester's College Kandy. Currently working as a  Software Engineer Intern at mobiOs PVT LTD.", 
+    "A passionate Software engineer from Sri Lanka. Done My Advance level At St.Sylvester's College Kandy. Currently working as an Associate Software Engineer at mobiOs PVT LTD.",
   resume:
     "https://drive.google.com/file/d/1eYpqu7zGKzzrZoy1vuDOaDWAduczbd7N/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/shanuka-dilshan/",
@@ -189,11 +184,11 @@ export const skills = [
 export const experiences = [
   {
     id: 0,
-    img: "data:image/jpeg;base64,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",
-    role: "Software Engineering Intern",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7dwA6lSgdKUQLoXPFBRK2hwHfqP8BNrVuXMvGqIXdjvcIsu4D3kBoii4&s=10",
+    role: "Associate Software Engineer",
     company: "MobiOs Pvt. Ltd-Sri Lanka",
-    date: "AUG 2024 - Present",
-    desc: "Currently working as a Fullstack  Software Engineering Intern at MobiOs contributing to several enterprise elevel projects world wide",
+    date: "JAN 2026 - Present",
+    desc: "Working as an Associate Software Engineer at MobiOs contributing to enterprise-level software solutions and key client projects.",
     skills: [
       "Docker",
       "React",
@@ -210,7 +205,41 @@ export const experiences = [
   },
   {
     id: 1,
-    img: "https://media.licdn.com/dms/image/v2/D560BAQFl9u9pfNyY1g/img-crop_100/img-crop_100/0/1719933237442?e=1743638400&v=beta&t=E1NqFIN5L_v7PjcQ8TKCfgc_PWJIDP6wQxzV5KmEevs",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7dwA6lSgdKUQLoXPFBRK2hwHfqP8BNrVuXMvGqIXdjvcIsu4D3kBoii4&s=10",
+    role: "Trainee Software Engineer",
+    company: "MobiOs Pvt. Ltd-Sri Lanka",
+    date: "MAR 2025 - DEC 2025",
+    desc: "Worked as a Trainee Software Engineer at MobiOs contributing to multiple full-stack applications and enterprise services.",
+    skills: [
+      "React",
+      "AXIOS",
+      "Redux",
+      "JavaScript",
+      "TypeScript",
+      "Node Js",
+      "Figma",
+      "Clickup",
+    ],
+  },
+  {
+    id: 2,
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7dwA6lSgdKUQLoXPFBRK2hwHfqP8BNrVuXMvGqIXdjvcIsu4D3kBoii4&s=10",
+    role: "Software Engineering Intern",
+    company: "MobiOs Pvt. Ltd-Sri Lanka",
+    date: "AUG 2024 - FEB 2025",
+    desc: "Worked as a Fullstack Software Engineering Intern at MobiOs contributing to several enterprise level projects worldwide",
+    skills: [
+      "React",
+      "AXIOS",
+      "JavaScript",
+      "Node Js",
+      "Figma",
+      "Clickup",
+    ],
+  },
+  {
+    id: 3,
+    img: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQa11Li0KJYB7lG0uVSFzTpoKt7b2A8_Wbh3A9aSBNl7_IAoigk",
     role: "Project Coordinator | Project Kelibimata Arunalu 3.0",
     company: "Leo Club of University of Kelaniya",
     date: "DEC 2023 - APR 2024",
@@ -218,8 +247,8 @@ export const experiences = [
     skills: ["Project Coordination", "Team Management", "Event Management", "Leadership"],
   },
   {
-    id: 2,
-    img: "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Singer_Sri_Lanka_logo.jpg/220px-Singer_Sri_Lanka_logo.jpg",
+    id: 4,
+    img: "https://s3-symbol-logo.tradingview.com/singer-sri-lanka--600.png",
     role: "Branch Cashier",
     company: "Singer Sri Lanka PLC",
     date: "FEB 2021 - AUG 2021",
@@ -228,7 +257,7 @@ export const experiences = [
     doc: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/Screenshot%20from%202024-01-25%2022-38-31.png?alt=media&token=2785903f-1a4e-41f5-afd2-6adcfe56d058",
   },
   {
-    id: 3,
+    id: 5,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8cQGkCVweClsA4OOTKjue6phppLG5na6KWA&s",
     role: "Trainee Technician",
     company: "DataLOG Information Systems PVT Ltd",
@@ -273,79 +302,14 @@ export const education = [
 export const projects = [
   {
     id: 1,
-    title: "Guru Duv Suwa Arana",
-    date: "June 204",
+    title: "Vision Institute",
+    date: "2024",
     description:
-      "Guru Dev Suwa Arana is the Srilankans Largest Buddhist monks Hospital.This web Application is created bu react",
-    image: Gdsa,
-    tags: ["React Js", "AOS"],
+      "A web-based management system for Vision Educational Institute - Atabage.",
+    image: vision,
+    tags: ["React Js", "Node Js", "MySQL"],
     category: "web app",
-    webapp: "https://gurudewsuwaarana.lk/",
-    member: [],
-  },
-  {
-    id: 3,
-    title: "E-Tutor ",
-    date: "Feb 2024 - APR 204",
-    description:
-      "E-Tutor service offers a seamless solution for those seeking personalized educational support by connecting them with qualified tutors online.",
-    image: Etutor,
-    tags: [
-      "React Js",
-      "My- SQL",
-      "Node Js",
-      "AOS",
-      "Redux,Monolothic Architecture",
-    ],
-    category: "web app",
-    webapp: "https://etutor.mobios.lk/home",
-    member: [],
-  },
-  {
-    id: 2,
-    title: "Jeep Safari",
-    date: "June 204",
-    description:
-      "Journey By Military Jeep Adventure on wheels .Our bespoke safari tours offer a unique blend of adventure and history, taking you through ancient cities, wildlife parks, and cultural heritage. Our expert guides curate unforgettable experiences, revealing new chapters in the planet's past and present.",
-    image: safari,
-    tags: ["React Js", "AOS"],
-    category: "web app",
-    webapp: "https://jeep-safari.netlify.app/",
-    member: [],
-  },
-
-  {
-    id: 4,
-    title: "Studio Mojo ",
-    date: "APR 204",
-    description:
-      "Studio Mojoa user-friendly text messaging platform to extend your customer interactions. Send promotional offers, alerts, reminders and marketing campaigns via SMS and email, all within a matter of seconds!",
-    image: StudioMojo,
-    tags: ["React Js", "AOS"],
-    category: "web app",
-    webapp: "https://studiomojo.lk/",
-    member: [],
-  },
-  {
-    id: 4,
-    title: "Medicare Pharmacy ",
-    date: "May 204",
-    description: "This is a web application that had crteated by react",
-    image: medicare,
-    tags: ["React Js", "AOS"],
-    category: "web app",
-    webapp: "https://medicarepharma.netlify.app/",
-    member: [],
-  },
-  {
-    id: 4,
-    title: "Medica Yh2 ",
-    date: "May 204",
-    description: "This is a web application that had crteated by react ",
-    image: yh2,
-    tags: ["React Js", "AOS", "Nodejs", "Redux"],
-    category: "web app",
-    webapp: "https://yh2.mobios.lk/",
+    webapp: "#",
     member: [],
   },
 ];

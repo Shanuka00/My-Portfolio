@@ -110,9 +110,15 @@ const ProjectCard = ({ project }) => {
           <Avatar src={member.img} />
         ))}
       </Members>
-      <Button href={project.webapp} target="_blank">
-        View live
-      </Button>
+      {project.webapp && (
+        <Button
+          href={project.webapp}
+          target={project.webapp.startsWith("http") ? "_blank" : undefined}
+          rel={project.webapp.startsWith("http") ? "noopener noreferrer" : undefined}
+        >
+          View live
+        </Button>
+      )}
     </Card>
   );
 };
