@@ -1,13 +1,14 @@
 import vision from "../images/vision.png";
+import weatherly from "../images/weatherly.jpg";
 
 export const Bio = {
-  name: "Shanuka Dilshan ",
+  name: "Shanuka Dissanayake",
   roles: ["Full Stack Developer", "UI/UX Designer", "Visual Content Editor"],
   description:
-    "A passionate Software engineer from Sri Lanka. Done My Advance level At St.Sylvester's College Kandy. Currently working as an Associate Software Engineer at mobiOs PVT LTD.",
+    "A passionate Software Engineer from Sri Lanka with a B.Sc. (Hons.) in IT from UOK, driven by innovation and continuous learning, currently working at mobiOs.",
   resume:
     "https://drive.google.com/file/d/1eYpqu7zGKzzrZoy1vuDOaDWAduczbd7N/view?usp=sharing",
-  linkedin: "https://www.linkedin.com/in/shanuka-dilshan/",
+  linkedin: "https://www.linkedin.com/in/shanuka-dissanayake/",
   insta: "https://www.instagram.com/shanuka.2000/",
   facebook: "https://www.facebook.com/shanuka2000",
   github: "https://github.com/Shanuka00",
@@ -273,9 +274,9 @@ export const education = [
     id: 0,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdlhHLL5MPtl01-Ib7NmetvbqLXJE_7zw72Ai2Egr5KTVUTSLmrMW1QHbIkipY7-LmBvg&usqp=CAU",
     school: "University of Kelaniya Sri Lanka",
-    date: "JUN 2022 - Present",
-    grade: "Reading",
-    desc: "Currently I'm a undergraduate pursuing a B.Sc.(Hons.) in Information Technology degree",
+    date: "JUN 2022 - JAN 2026",
+    grade: "Second Class Upper Division",
+    desc: "Completed my B.Sc.(Hons.) in Information Technology degree with a Second Class Upper Division.",
     degree: "B.Sc.(Hons.) in Information Technology",
   },
 
@@ -307,9 +308,19 @@ export const projects = [
     description:
       "A web-based management system for Vision Educational Institute - Atabage.",
     image: vision,
-    tags: ["React Js", "Node Js", "MySQL"],
+    tags: ["React", "Node.js"],
     category: "web app",
-    webapp: "#",
+    member: [],
+  },
+  {
+    id: 2,
+    title: "Weatherly",
+    date: "2025",
+    description:
+      "A mobile application to get live temperature and detailed weather forecasts anywhere in the world.",
+    image: weatherly,
+    tags: ["Flutter"],
+    category: "mobile app",
     member: [],
   },
 ];

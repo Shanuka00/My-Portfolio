@@ -1,4 +1,4 @@
-# Shanuka Dilshan  
+# Shanuka Dissanayake  
 **Tech Enthusiast & Developer** ✨  
 
 ---
