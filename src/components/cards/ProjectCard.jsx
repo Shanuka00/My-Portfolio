@@ -101,7 +101,7 @@ const Avatar = styled.img`
 const ProjectCard = ({ project }) => {
   return (
     <Card>
-      <Image src={project.image} />
+      <Image src={project.image} alt={project.title} />
       <Tags>
         {project.tags?.map((tag, index) => (
           <Tag key={index}>{tag}</Tag>

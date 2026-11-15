@@ -1,6 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import emailjs from "@emailjs/browser";
 
 const Container = styled.div`
   display: flex;
@@ -26,7 +25,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.h2`
   font-size: 52px;
   text-align: center;
   font-weight: 600;
@@ -69,7 +68,9 @@ const ContactTitle = styled.div`
   color: ${({ theme }) => theme.text_primary};
 `;
 
-const ContactInput = styled.input`
+// Browser extensions may add attributes such as fdprocessedid before hydration.
+// Keep the escape hatch on the affected input elements only.
+const ContactInput = styled.input.attrs({ suppressHydrationWarning: true })`
   flex: 1;
   background-color: transparent;
   border: 1px solid ${({ theme }) => theme.text_secondary + 50};
@@ -97,7 +98,7 @@ const ContactInputMessage = styled.textarea`
   }
 `;
 
-const ContactButton = styled.input`
+const ContactButton = styled.input.attrs({ suppressHydrationWarning: true })`
   width: 100%;
   text-decoration: none;
   text-align: center;
@@ -109,31 +110,48 @@ const ContactButton = styled.input`
   color: ${({ theme }) => theme.text_primary};
   font-size: 18px;
   font-weight: 600;
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.65;
+    cursor: wait;
+  }
+`;
+
+const ContactStatus = styled.p`
+  color: ${({ theme }) => theme.text_primary};
+  font-size: 14px;
+  line-height: 1.5;
 `;
 
 const Contact = () => {
   const form = useRef();
+  const [isSending, setIsSending] = useState(false);
+  const [status, setStatus] = useState(null);
+  const submitting = useRef(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_tox7kqsWWWWWW",
-        "template_nv7k7mjWWWWWW",
-        form.current,
-        "SybVGsYS52j2TfLbiWWWWWW"
-      )
-      .then(
-        (result) => {
-          console.log("Success:", result.text);
-          alert("Message Sent Successfully");
-          form.current.reset();
-        },
-        (error) => {
-          console.log("Error:", error.text);
-          alert("Failed to send message. Please try again.");
-        }
-      );
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (submitting.current) return;
+    submitting.current = true;
+    setIsSending(true);
+    setStatus(null);
+    try {
+      const values = new FormData(form.current);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(values)),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Unable to send your message. Please try again.");
+      setStatus({ type: "success", text: result.message });
+      form.current.reset();
+    } catch (error) {
+      setStatus({ type: "error", text: error.message || "Unable to send your message. Please try again." });
+    } finally {
+      submitting.current = false;
+      setIsSending(false);
+    }
   };
 
   return (
@@ -147,14 +165,18 @@ const Contact = () => {
         >
           Feel free to reach out to me for any questions!
         </Desc>
-        <ContactForm ref={form} onSubmit={handleSubmit}>
+        <ContactForm ref={form} onSubmit={handleSubmit} aria-busy={isSending}>
           <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" required />
-          <ContactInput placeholder="Your Name" name="from_name" required />
-          <ContactInput placeholder="Subject" name="subject" required />
-          <ContactInputMessage placeholder="Message" name="message" rows={4} required />
-          <ContactButton type="submit" value="Send" />
-          <input type="hidden" name="to_email" value="rakiamadithya20@gmail.com" />
+          <ContactInput type="email" placeholder="Your Email" aria-label="Your Email" autoComplete="email" name="from_email" maxLength={254} required />
+          <ContactInput placeholder="Your Name" aria-label="Your Name" autoComplete="name" name="from_name" maxLength={120} required />
+          <ContactInput placeholder="Subject" aria-label="Subject" name="subject" maxLength={200} required />
+          <ContactInputMessage placeholder="Message" aria-label="Message" name="message" rows={4} maxLength={5000} required />
+          <ContactButton type="submit" value={isSending ? "Sending..." : "Send"} disabled={isSending} />
+          {status && (
+            <ContactStatus role={status.type === "error" ? "alert" : "status"}>
+              {status.text}
+            </ContactStatus>
+          )}
         </ContactForm>
       </Wrapper>
     </Container>

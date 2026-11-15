@@ -10,8 +10,13 @@
 
 # production
 /build
+/.next/
+/out/
+/test-results/
+/playwright-report/
 
 # misc
+.env
 .DS_Store
 .env.local
 .env.development.local

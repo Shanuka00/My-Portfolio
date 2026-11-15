@@ -274,7 +274,7 @@ export const projects = [
     date: "2024",
     description:
       "A web-based management system for Vision Educational Institute - Atabage.",
-    image: vision,
+    image: vision.src,
     tags: ["React", "Node.js"],
     category: "web app",
     member: [],
@@ -285,7 +285,7 @@ export const projects = [
     date: "2025",
     description:
       "A mobile application to get live temperature and detailed weather forecasts anywhere in the world.",
-    image: weatherly,
+    image: weatherly.src,
     tags: ["Flutter"],
     category: "mobile app",
     member: [],

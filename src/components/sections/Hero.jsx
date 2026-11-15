@@ -71,7 +71,7 @@ const HeroRightContainer = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   font-weight: 700;
   font-size: 57px;
   color: ${({ theme }) => theme.text_primary};
@@ -142,15 +142,15 @@ const SubTitle = styled.div`
 `;
 
 const ContactButton = styled.a`
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
 
   width: 95%;
   max-width: 300px;
-  text-align: center;
-  padding: 16px 0;
+  padding: 16px 24px;
+  cursor: pointer;
 
   background: hsla(210, 100%, 50%, 1);
   background: linear-gradient(
@@ -173,20 +173,19 @@ const ContactButton = styled.a`
   border-radius: 50px;
   font-weight: 600;
   font-size: 20px;
+  color: white;
 
-     &:hover {
-        transform: scale(1.05);
+  &:hover {
+    transform: scale(1.05);
     transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
+    box-shadow: 20px 20px 60px #1f2634;
     filter: brightness(1);
-    }    
-    
-    
-    @media (max-width: 640px) {
-        padding: 12px 0;
-        font-size: 18px;
-    } 
-    color: white;
+  }
+
+  @media (max-width: 640px) {
+    padding: 12px 20px;
+    font-size: 18px;
+  }
 `;
 
 const Img = styled.img`
@@ -195,6 +194,8 @@ const Img = styled.img`
   height: 100%;
   max-width: 416px;
   max-height: 416px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   border: 2px solid ${({ theme }) => theme.primary};
   transition: transform 0.5s ease-in-out; /* Smooth zoom-in animation */
 
@@ -202,9 +203,14 @@ const Img = styled.img`
     transform: scale(1.07); /* Zoom-in effect */
   }
 
+  @media (max-width: 960px) {
+    max-width: 380px;
+    max-height: 380px;
+  }
+
   @media (max-width: 640px) {
-    max-width: 280px;
-    max-height: 280px;
+    max-width: 255px;
+    max-height: 255px;
   }
 `;
 
@@ -273,7 +279,7 @@ const Hero = () => {
             </HeroLeftContainer>
             <HeroRightContainer>
               <motion.div {...headContentAnimation}>
-                <Img src={HeroImg} alt="Shanuka Dissanayake" />
+                <Img src={HeroImg.src} alt="Shanuka Dissanayake" />
               </motion.div>
             </HeroRightContainer>
           </HeroInnerContainer>

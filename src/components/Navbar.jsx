@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link as LinkR } from "react-router-dom";
+import Link from "next/link";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
 import { MenuRounded } from "@mui/icons-material";
 import mylogo2 from "../images/mylogo2.png";
 
-const Nav = styled.div`
+const Nav = styled.nav`
   background-color: ${({ theme }) => theme.bg};
   height: 80px;
   display: flex;
@@ -27,7 +27,7 @@ const NavbarContainer = styled.div`
   justify-content: space-between;
   font-size: 1rem;
 `;
-const NavLogo = styled(LinkR)`
+const NavLogo = styled(Link)`
   width: 80%;
   padding: 0 6px;
   font-weight: 500;
@@ -119,12 +119,12 @@ const MobileMenu = styled.ul`
   right: 0;
 
   transition: all 0.6s ease-in-out;
-  transform: ${({ isOpen }) =>
-    isOpen ? "translateY(0)" : "translateY(-100%)"};
+  transform: ${({ $isOpen }) =>
+    $isOpen ? "translateY(0)" : "translateY(-100%)"};
   border-radius: 0 0 20px 20px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
-  z-index: ${({ isOpen }) => (isOpen ? "1000" : "-1000")};
+  opacity: ${({ $isOpen }) => ($isOpen ? "100%" : "0")};
+  z-index: ${({ $isOpen }) => ($isOpen ? "1000" : "-1000")};
 `;
 
 const LogoImg = styled.img`
@@ -153,13 +153,18 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme();
   return (
-    <Nav>
+    <Nav aria-label="Main navigation">
       <NavbarContainer>
-        <NavLogo to="/">
-          <LogoImg src={mylogo2} alt="Logo" />
+        <NavLogo href="/" aria-label="Shanuka Dissanayake home">
+          <LogoImg src={mylogo2.src} alt="Logo" />
         </NavLogo>
 
-        <MobileIcon onClick={() => setIsOpen(!isOpen)}>
+        <MobileIcon role="button" tabIndex={0} aria-label="Toggle navigation" aria-expanded={isOpen} aria-controls="mobile-navigation" onClick={() => setIsOpen(!isOpen)} onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            setIsOpen(!isOpen);
+          }
+        }}>
           <MenuRounded style={{ color: "inherit" }} />
         </MobileIcon>
 
@@ -172,7 +177,7 @@ const Navbar = () => {
         </NavItems>
 
         {isOpen && (
-          <MobileMenu isOpen={isOpen}>
+          <MobileMenu id="mobile-navigation" $isOpen={isOpen}>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#About">
               About
             </NavLink>
